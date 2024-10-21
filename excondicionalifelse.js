@@ -89,7 +89,7 @@ if (valorCompra>=30){
 //Quin d’aquests sabors vol:Vainilla o Xocolata No cal afegir res; Turró, Menta o Oreo. Caldrà afegir 0.5 al preu final; Crema, Gerds o Ametlles. Caldrà afegir 1 al preu final.
 //Si l’usuari posa alguna dada malament, el missatge que es posarà a la consola serà “Error dades mal introduïdes”
 //Si totes les dades són correctes, escriurà el preu final.
-let envas = prompt("Introdueix en quin envás vols el gelat");
+/*let envas = prompt("Introdueix en quin envás vols el gelat");
 let gelat = prompt("Introdueix el sabor de gelat que vols");
 let c = 3.45;
 let t = 3.95;
@@ -109,4 +109,4 @@ if (envas=="Conus"){
     }else if(gelat=="Crema"||gelat=="Gerds"||gelat=="Ametlles"){
         document.write(4.95);
     }
-}
+}*/
