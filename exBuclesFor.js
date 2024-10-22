@@ -43,3 +43,45 @@ for (i=2;i<=N;i++);{
 }
 console.log(suma);*/
 
+//16.7. -  Escriu un programa que, donat un número N, escrigui a la consola la taula de multiplicar de N.
+/*let N = parseInt(prompt("Introdueix un número"));
+let multiplicacio = 1;
+for (i=0;i<=12;i++){
+    multiplicacio=N*i;
+    console.log(multiplicacio);
+}*/
+
+//16.8. - Escriu un programa que, donat un número N, escrigui a la consola tots els números de N a 1 (per tant, en ordre descendent). Observa el que passa si N < 1.
+/*let N = parseInt(prompt("Introdueix un número"));
+let resta = 0;
+for (i=0;i<N;i++){
+    resta=N-i;
+    console.log(resta);
+}*/
+
+//16.9. - Escriu un programa que donat un número N, escrigui N asteriscos (*)
+/*let N = parseInt(prompt("Introdueix un número"));
+for (i=1;i<=N;i++){
+    console.log("*");
+}*/
+
+//16.10. -  Escriu un programa que donat un número N, escrigui el següent dibuix (cas que el número introduït sigui 5).
+/*let N = parseInt(prompt("Introdueix un número"));
+let suma = "";
+for (i=1;i<=N;i++){
+    suma=suma+"*";
+    console.log(suma);
+}*/
+
+//16.11. - Escriu un programa que donat dos números N i M, crei i sumi una sèrie com la següent:
+/*let N = parseInt(prompt("Introdueix un número"));
+let M = parseInt(prompt("Introdueix un altre número"));
+let serie = "";
+let suma = 0;
+for (i=1;i<=M;i++){
+    let repeticio=String(N).repeat(i);
+    serie=serie+repeticio+" ";
+    suma=suma+parseInt(repeticio);
+    console.log(serie);
+}
+console.log(suma);*/
