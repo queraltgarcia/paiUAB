@@ -36,14 +36,14 @@ console.log(suma);*/
 //16.6. - Escriu un programa que, donat un número N, calculi la suma de tots els números parells entre 2 i N.
 /*let N = parseInt(prompt("Introdueix un número"));
 let suma = 0;
-for (i=2;i<=N;i++);{
+for (let i=2;i<=N;i++){
     if ((i%2)==0){
         suma=suma+i;
     }
 }
 console.log(suma);*/
 
-//16.7. -  Escriu un programa que, donat un número N, escrigui a la consola la taula de multiplicar de N.
+//16.7. - Escriu un programa que, donat un número N, escrigui a la consola la taula de multiplicar de N.
 /*let N = parseInt(prompt("Introdueix un número"));
 let multiplicacio = 1;
 for (i=0;i<=12;i++){
