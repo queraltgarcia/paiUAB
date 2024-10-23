@@ -30,6 +30,14 @@ let preu = parseInt(prompt("Introdueix el preu per hora treballada"));
 let dinersTotals = hores*preu;
 console.log("Els diners totals son: "+dinersTotals);*/
 
+//12.5. - Fes un programa en JavaScript que, donades dues variables x i y, intercanviï els seus valores de manera que x acabi tenint el valor de y i y acabi tenint el valor de x.
+/*let x = prompt("Introdueix la primera variable");
+let v = propmt("Introdueix la segona variable");
+let guardar = x;
+let x = v;
+let v = guardar;
+console.log(x,v);*/
+
 //12.6. - Fes un programa que escrigui a la consola el cub d’un número llegit per teclat (amb el prompt()).
 /*let num = parseInt(prompt("Introdueix un número"));
 let cub = num*num;
@@ -41,3 +49,24 @@ console.log("El cub d'aquest número és: "+cub);*/
 //12.8. - Escriu un programa de dues línies que demani el nom de l’usuari amb un prompt() i escrigui un text a la consola que digui “Hola nomUsuari.
 /*let nomUsuari = prompt("Escriu el teu nom d'usuari");
 console.log("Hola "+nomUsuari);*/
+
+//Exercicis per mirar "què s'escriuria a la consola":
+
+/*let a="Hola";
+let b="Adéu";
+let c=a+b //Es posicionen les dues cadenes al costat.
+console.log(c);*/
+
+/*let a=true;
+let b=false;
+let c1=true===false;
+let c2=true==1;
+let c3=true===1;
+console.log(c1,c2,c3);*/
+
+/*let a=5; b=7;
+let c=5 ; d="5";
+let e1= a==b;
+let e2= c==d;
+let e3= c===d;
+console.log(e1,e2,e3);*/
