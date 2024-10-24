@@ -14,9 +14,10 @@ while(i<=20){
 
 //17.3. - Escriu un programa, fent servir la instrucció while, que, donat un número N, escrigui a la consola tots els números de N a 1 (per tant, en ordre descendent). Observa el que passa si N < 1.
 /*let n= parseInt(prompt("Introdueix un número"));
-while(n>=1){
-    console.log(n);
-    n--;
+let i = n;
+while(i>=1){
+    console.log(i);
+    i--;
 }*/
 
 //17.5. -  Escriu un programa que, donats dos números N i M, escrigui en la consola la llista de multiplicacions N*1, N*2, N*3, N*4,...,N*M
