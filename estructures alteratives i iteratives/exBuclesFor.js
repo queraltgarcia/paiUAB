@@ -33,6 +33,15 @@ for (N;N<=M;N++){
 }
 console.log(suma);*/
 
+//16.5. - Manera diferent de resoldre l'exercici:
+/*let N = parseInt(prompt("Introdueix el primer número"));
+let M = parseInt(pompt("Introdueix el segon número"));
+let suma = 0;
+for (let i=N;i<=M;i++){
+    suma=suma+i;
+}
+console.log(suma);*/
+
 //16.6. - Escriu un programa que, donat un número N, calculi la suma de tots els números parells entre 2 i N.
 /*let N = parseInt(prompt("Introdueix un número"));
 let suma = 0;
