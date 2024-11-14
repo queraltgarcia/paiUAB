@@ -68,4 +68,37 @@ let ultimValor = taula[taula.length - 1];
 console.log("El primer valor de la taula és: " + primerValor);
 console.log("El últim valor de la taula és: " + ultimValor);*/
  
-//21.7. - 
+//21.7. -  Fes un programa que escrigui a la consola tots els valors emmagatzemats a la taula, un a un. 
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78]; 
+let mida = taula.length;
+for (let i=0; i<mida; i++){
+    console.log(taula[i]);
+}*/
+
+//21.8. -  Fes un programa que escrigui a la consola la suma tots els valors emmagatzemats a la taula.
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let suma = 0;
+let mida = taula.length;
+for (let i=0; i<mida; i++){
+    suma=suma+taula[i];
+}
+console.log(suma);*/
+
+//21.9. -  Fes un programa que crei una segona taula i emmagatzemi a ella tots els valors de la taula, tot sumant-los 25. Hi haurà d'escriure la nova taula a la consola.
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let taulaNova = [];
+let mida = taula.length;
+for (let i=0; i<mida; i++){
+    taulaNova[i] = taula[i] + 25;
+}
+console.log(taulaNova);*/
+
+//21.10. - Fes un programa que calculi la mitjana dels valors emmagatzemats a la taula i l’escrigui a la consola.
+let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let mida = taula.length;
+let suma = 0;
+for (let i=0; i<mida; i++){
+    suma = suma + taula[i];
+}
+let mitjana = suma / taula.length;
+console.log(mitjana);
