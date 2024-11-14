@@ -94,11 +94,14 @@ for (let i=0; i<mida; i++){
 console.log(taulaNova);*/
 
 //21.10. - Fes un programa que calculi la mitjana dels valors emmagatzemats a la taula i l’escrigui a la consola.
-let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
 let mida = taula.length;
 let suma = 0;
 for (let i=0; i<mida; i++){
     suma = suma + taula[i];
 }
 let mitjana = suma / taula.length;
-console.log(mitjana);
+console.log(mitjana);*/
+
+//21.11. -  Fes un programa que calculi i escrigui a la consola els valors més gran i més petit de la taula. 
+let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
