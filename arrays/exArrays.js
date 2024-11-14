@@ -62,9 +62,10 @@ console.log(array);*/
 console.log(resultats);*/
 
 //21.6. -  Donada aquesta taula: Fes un programa que escrigui a la consola els valors situats a la primera i la darrera posició de la taula.
-let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78]; 
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78]; 
 let primerValor = taula[0];
 let ultimValor = taula[taula.length - 1];
 console.log("El primer valor de la taula és: " + primerValor);
-console.log("El últim valor de la taula és: " + ultimValor);
+console.log("El últim valor de la taula és: " + ultimValor);*/
  
+//21.7. - 
