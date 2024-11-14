@@ -41,3 +41,30 @@ let array = [];
 array[0] = doble;
 array[1] = triple;
 console.log(array);*/
+
+//21.5. - Fes un programa que, donat dos números, que demanarem per pantalla i emmagatzemarem a dues variables, guardi a una taula els resultats de la suma, la resta, la multiplicació i la divisió dels dos valors introduïts. 
+/*let n1 = parseFloat(prompt("Introdueix el primer número: "));
+let n2 = parseFloat(prompt("Introdueix el segon número: "));
+let array = [];
+array[0] = n1 + n2;
+array[1] = n1 - n2;
+array[2] = n1 * n2;
+array[3] = n1 / n2;
+console.log(array);*/
+
+//Altra manera de fer-ho:
+/*let resultats = [
+    n1 + n2,
+    n1 - n2,
+    n1 * n2,
+    n1 / n2,
+];
+console.log(resultats);*/
+
+//21.6. -  Donada aquesta taula: Fes un programa que escrigui a la consola els valors situats a la primera i la darrera posició de la taula.
+let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78]; 
+let primerValor = taula[0];
+let ultimValor = taula[taula.length - 1];
+console.log("El primer valor de la taula és: " + primerValor);
+console.log("El últim valor de la taula és: " + ultimValor);
+ 
