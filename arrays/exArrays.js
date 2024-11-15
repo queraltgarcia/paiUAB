@@ -117,7 +117,3 @@ for (let i=0; i<mida; i++){
     }
 }
 console.log(taulaNova);*/
-
-let a = 10;
-let b = a++;
-console.log(b);
