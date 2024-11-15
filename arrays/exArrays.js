@@ -104,4 +104,20 @@ let mitjana = suma / taula.length;
 console.log(mitjana);*/
 
 //21.11. -  Fes un programa que calculi i escrigui a la consola els valors més gran i més petit de la taula. 
-let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];*/
+
+
+//21.12. - Fes un programa que crei una nova taula on s’emmagatzemin només els valors parells de la taula i que escrigui el contingut d’aquesta nova taula a la consola.
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let novaTaula = [];
+let mida = taula.length;
+for (let i=0; i<mida; i++){
+    if (taula[i]%2===0){
+        taulaNova[i]= taula[i];
+    }
+}
+console.log(taulaNova);*/
+
+let a = 10;
+let b = a++;
+console.log(b);
