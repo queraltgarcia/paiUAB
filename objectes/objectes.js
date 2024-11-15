@@ -12,7 +12,7 @@
     }
     //Mètode
     totPagat(){
-        yhis.deute = 0;
+        this.deute = 0;
     }
 }
 class Paquet{
@@ -46,7 +46,7 @@ class Empresa{
     }
     //Mètode
     totPagat(){
-        yhis.deute = 0;
+        this.deute = 0;
     }
 }
 class Paquet{
