@@ -21,6 +21,10 @@
 }*/
 
 //3.3. - Feu un script que inclogui una funció que, donat un enter N, retorni ∑ (1 / n2 ) per a 0 < n ≤ N.
-function suma (N){
-    for (let i=0; i)
-}
+/*function sumatori (N){
+    let suma = 0;
+    for (let i=1; i<=N; i++){
+        suma = suma+1 / (i*i);
+    }
+    return suma;
+}*/
