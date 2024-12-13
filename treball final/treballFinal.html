@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treball final</title>
+</head>
+<body>
+    <script src="treballFinal.js"></script>
+    <form id="formulari">
+
+        <!--Nom i cognoms-->
+        <label for="nom">Nom i Cognoms:</label><br>
+        <input type="text" id="nom" placeholder="Escriu aquí" onblur="f(x)"><br><br>
+        <label for="edat">Rang d'edats:</label><br>
+
+        <!--Rangs d'edat-->
+        <select name="rangs d'edat" id="rangs d'edat">
+            <option value="">Selecciona una opció</option>
+            <option value="18-25">18-25</option>
+            <option value="26-40">26-40</option>
+            <option value="41-55">41-55</option>
+            <option value="56-65">56-65</option>
+            <option value="més de 65">més de 65</option>
+        </select><br><br>
+
+        <!--Codi postal-->
+        <label for="postal">Codi postal:</label><br>
+        <input type="text" id="postal" maxlength="5" placeholder="Escriu aquí"><br><br>
+
+        <!--Correu electrònic-->
+        <label for="correu">Correu electrònic:</label><br>
+        <input type="email" id="correu" placeholder="Escriu aquí"><br><br>
+    </form> 
+</body>
+</html>
