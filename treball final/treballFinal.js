@@ -34,32 +34,62 @@ function codiPostal (postal){
 
 /*Funció comprovació i error del Email*/
 function correu (correu){
-    const Correu = getElementById("correu");
-    if (!Correu.value.match(/^[^@]+@[^@]+\.[a-z]{2,}$/i)){
-        /*Ficar que comprovi si hi ha una @ i un .*/
+    const Correu = getElementById("correu");ç
+    const valor = Correu.value;
+    const arrova = valor.split("@");
+    if (arrova.lenght != 2){
         document.getElementById("error_correu").textContent = "Escriviu un correu vàlid.";
-    }else{
-        document.getElementById("error_correu").textContent = "";
+        return;
     }
+   const text = arrova[1];
+   if (!text.includes(".") || text.startsWith(".") || text.endsWith(".")){
+        document.getElementById("error_correu").textContent = "Escriviu un correu vàlid."; 
+        return;
+   }
+   document.getElementById("error_correu").textContent = "";
 }
 
 /*Funció comprovació i error Contrasenya*/
 function contrasenya (contrasenya){
     const Contrasenya = getElementById("contrasenya");
-    /*Ficar que comprovi si hi ha només 8 dígits i si hi ha al menys una majúscula, minúscula, 2 dígits i un caràcter especial*/
-    if (!Contrasenya.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_+]).{8,}$/)){
-        document.getElementById("error_contrasenya").textContent = "Escriviu una contrasenya vàlida.";
-    }else{
-        document.getElementById(error_contrasenya).textContent = "";
+    const valor = Contrasenya.value;
+    if (valor.lenght < 8){
+        document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir mínim 8 caràcters.";
+        return;
     }
+    if (!/[A-Z]/.test(value)){
+        document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir al menys una majúscula.";
+        return;
+    }
+    if (!/[a-z]/.test(value)){
+        document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir al menys una minúscula.";
+        return;
+    }
+    if (!/\d.*\d/.test(valor)){
+        document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir al menys dos dígits.";
+        return;
+    }
+    if (!/[!@#$%^&*()_+\[\]{};:|,.<>\/?\\-=_`~]/.test(valor)){
+        document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir al menys un caràcter especial.";
+        return;
+    }
+    document.getElementById(error_contrasenya).textContent = "";
 }
 
 /*Funció confirmació Contrasenya*/
 function confirmarContrasenya (confirmar_contrasenya){
     const Confirmar = document.getElementById("confirmar_contrasenya");
     if (Confirmar.value !== Contrasenya.value){ /*Contrasenya.value no correspon*/
-        document.getElementById("error_confirmar_contrasenya").textContent = "Les contrasenyes no coincideixen";
+        document.getElementById("error_confirmar_contrasenya").textContent = "Les contrasenyes no coincideixen.";
     }else{
         document.getElementById("error_confirmar_contrasenyes").textContent = "";
+    }
+}
+
+/*Funció comprovació política de privacitat*/
+function comprovacio (privacitat){
+    const Comprova = document.getElementById("privacitat");
+    if (!Comprova.checked){
+        document.getElementById("error_confirmacio").textContent = "Cal acceptar la políitica de privacitat.";
     }
 }
