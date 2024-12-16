@@ -1,8 +1,10 @@
 /*Funció comprovació majúscula i error de Nom i Cognoms*/ 
 function majuscula (nom){
     const Nom = document.getElementById("nom");
-    if (!Nom.value.match(/^[A-ZÀ-ÖØ-Ý][a-zà-öø-ý]*(\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ý]*)+$/)){
-        /*Ficar que es canvi sola la primera lletra de cada paraula en majúscula*/
+    Nom.value = Nom.value
+        .toLowerCase() // Primer pas: convertir-ho tot a minúscules
+        .replace(/\b[a-zà-öø-ý]/g, lletra => lletra.toUpperCase()); // Capitalitzar la primera lletra de cada paraula
+    if (!Nom.value.match(/^[A-ZÀ-ÖØ-Ý][a-zà-öø-ý]*(\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ý]*)*$/)){
         document.getElementById("error_nom").textContent = "Escriviu un nom vàlid.";
     }else{
         document.getElementById("error_nom").textContent = "";
@@ -22,8 +24,8 @@ function rangsEdat (rangs_edat){
 /*Funció comprovació dels 5 dígits i error de Codi Postal*/
 function codiPostal (postal){
     const Postal = getElementById("postal");
-    if (!Postal.value.match(/^\d{5}$/)){
-        /*Ficar que es comprovi que hi ha només 5 dígits*/
+    const valor = Postal.value;
+    if (valor.lenght !== 5 || isNaN(valor)){ //isNaN comprova si el valor no és numèric
         document.getElementById("error_postal").textContent = "Escriviu un codi postal vàlid.";
     }else{
         document.getElementById("error_postal").textContent = "";
