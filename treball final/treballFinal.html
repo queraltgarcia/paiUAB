@@ -11,11 +11,12 @@
 
         <!--Nom i cognoms-->
         <label for="nom">Nom i Cognoms:</label><br>
-        <input type="text" id="nom" placeholder="Escriu aquí" onblur="f(x)"><br><br>
+        <input type="text" id="nom" placeholder="Escriu aquí" onblur="f(majuscula)"><br><br>
         <label for="edat">Rang d'edats:</label><br>
+        <p id="error_nom" class="error"></p>
 
         <!--Rangs d'edat-->
-        <select name="rangs d'edat" id="rangs d'edat">
+        <select name="rangs_edat" id="rangs_edat" onblur="f(rangsEdat)">
             <option value="">Selecciona una opció</option>
             <option value="18-25">18-25</option>
             <option value="26-40">26-40</option>
@@ -23,14 +24,31 @@
             <option value="56-65">56-65</option>
             <option value="més de 65">més de 65</option>
         </select><br><br>
+        <p id="error_edat" class="error"></p>
 
         <!--Codi postal-->
         <label for="postal">Codi postal:</label><br>
-        <input type="text" id="postal" maxlength="5" placeholder="Escriu aquí"><br><br>
+        <input type="text" id="postal" maxlength="5" placeholder="Escriu aquí" onblur="f(codiPostal)"><br><br>
+        <p id="error_postal" class="error"></p>
 
         <!--Correu electrònic-->
         <label for="correu">Correu electrònic:</label><br>
-        <input type="email" id="correu" placeholder="Escriu aquí"><br><br>
+        <input type="email" id="correu" placeholder="Escriu aquí" onblur="f(correu)"><br><br>
+        <p id="error_correu" class="error"></p>
+
+        <!--Contrasenya-->
+        <label for="contrasenya">Contrasenya:</label><br>
+        <input type="password" id="contrasenya" placeholder="Contrasenya" onblur="f(contrasenya)"><br><br>
+        <input type="checkbox" id="mostrar_contrasenya"><br>
+        <p id="error_contrasenya" class="error"></p>
+
+        <!--Confirmar la contrasenya-->
+        <label for="confirmar_contrasenya">Confirma la contrasenya:</label><br>
+        <input type="password" id="confirmar_contrasenya" placeholder="Contrasenya" onblur="f(confirmarContrasenya)"><br><br>
+        <input type="checkbox" id="mostrar_contrasenya"><br>
+        <p id="error_confirmar_contrasenya" class="error"></p>
+
+        <!---->
     </form> 
 </body>
 </html>
