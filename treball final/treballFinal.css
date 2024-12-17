@@ -1,0 +1,56 @@
+body {
+    font-family:Arial, Helvetica, sans-serif; /*Especifica la tipografía del text*/
+    line-height: 1.5; /*Multiplica l'alçada de la línea per la mida de la font*/
+    margin: 25px;
+    background-color:thistle;
+}
+
+h1 {
+    text-align: center;
+    color:black;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+form {
+    max-width: 500px; /*Limita l'amplada del formulari*/
+    margin: 0 auto; /*Centra el formulari horitzontalment al centre de lapàgina*/
+    padding: 30px; /*Marge intern*/
+    background: white;
+    border: 2px solid #ddd; /*Contorn al formulari*/
+    border-radius: 8px; /*Arrodoneix les cantonades del formulari*/
+}
+
+label {
+    display: block; /*Mostra cada etiqueta en una línea nova*/
+    margin: 10px 0 5px; /*Marge superior, costats, inferior*/
+}
+  
+input, select, button {
+    width: 95%;
+    padding: 8px; /*Farciment intern dins del elements*/
+    margin-bottom: 10px; /*Afageix espai sota dels elements*/
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+  
+button {
+    background-color: #0055a5; 
+    color: white;
+    border: none; /*Elimina qualsevol contorn per defecte*/
+    cursor: pointer; /*Canvie el cursor a una mà quan es passa per sobre del botó*/
+}
+  
+button:hover { /*Defineix l'estil del botó quan el cursor li passa per sobre*/
+    background-color: #003f73;
+}
+  
+.error {
+    color: red;
+    font-size: 0.85em;
+    margin-top: -8px; /*Afegeix un marge negatiu a sobre, movent el text cap amunt*/
+}
+  
