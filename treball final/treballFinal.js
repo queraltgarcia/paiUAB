@@ -91,7 +91,7 @@ function comprovacio (privacitat){
     const Comprova = document.getElementById("privacitat");
     if (!Comprova.checked){
         document.getElementById("error_confirmacio").textContent = "Cal acceptar la políitica de privacitat.";
-        
+
     }
 }
 
@@ -112,3 +112,6 @@ eliminar.addEventListener("click", function(){
     document.getElementById("error_confirmar_contrasenya").innerText = "";
     document.getElementById("error_confirmacio").innerText = "";
 })
+
+/*Funció enviar el formulari*/
+const enviar = document.getElementById("enviar");
