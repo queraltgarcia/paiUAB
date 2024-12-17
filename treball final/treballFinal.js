@@ -74,7 +74,7 @@ function contrasenya (contrasenya){
         return;
     }
     document.getElementById(error_contrasenya).textContent = "";
-}
+} 
 
 /*Funció confirmació Contrasenya*/
 function confirmarContrasenya (confirmar_contrasenya){
@@ -91,5 +91,24 @@ function comprovacio (privacitat){
     const Comprova = document.getElementById("privacitat");
     if (!Comprova.checked){
         document.getElementById("error_confirmacio").textContent = "Cal acceptar la políitica de privacitat.";
+        
     }
 }
+
+/*Funció esborrar formulari*/
+const eliminar = document.getElementById("esborrar");
+eliminar.addEventListener("click", function(){
+    document.getElementById("Nom").value = "";
+    document.getElementById("Postal").value = "";
+    document.getElementById("Correu").value = "";
+    document.getElementById("Contrasenya").value = "";
+    document.getElementById("Comprova").value = "";
+    document.getElementById("Rangs").selectIndex = 0;
+    document.getElementById("error_nom").innerText = "";
+    document.getElementById("error_edat").innerText = "";
+    document.getElementById("error_postal").innerText = "";
+    document.getElementById("error_correu").innerText = "";
+    document.getElementById("error_contrasenya").innerText = "";
+    document.getElementById("error_confirmar_contrasenya").innerText = "";
+    document.getElementById("error_confirmacio").innerText = "";
+})
