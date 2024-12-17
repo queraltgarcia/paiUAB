@@ -1,6 +1,7 @@
 document.getElementById("enviar").addEventListener("click", validarFormulari);
+document.getElementById("esborrar").addEventListener("click", esborraFormulari);
 
-
+/*Funció validació del formulari*/
 function validarFormulari(){
     let errors = false;
     /*Funció comprovació majúscula i error de Nom i Cognoms*/ 
@@ -104,28 +105,24 @@ function validarFormulari(){
     }else{
         document.getElementById("error_privacitat").textContent = "";
     }
+
+    /*Resultats*/
+    if (!errors){
+        document.getElementById("resultats").textContent = "Formulari enviat correctament";
+    }else{
+        document.getElementById("resultats").textContent = "";
+    }
+}
+
+/*Funció esborra formulari*/
+function esborraFormulari(){
+    document.getElementById("formulari").reset();
+    document.querySelectorAll(".errors").forEach(errors => errors.textContent = "");
 }
 
 
 
 
-/*Funció esborrar formulari*/
-/*const eliminar = document.getElementById("esborrar");
-eliminar.addEventListener("click", function(){
-    document.getElementById("Nom").value = "";
-    document.getElementById("Postal").value = "";
-    document.getElementById("Correu").value = "";
-    document.getElementById("Contrasenya").value = "";
-    document.getElementById("Comprova").value = "";
-    document.getElementById("Rangs").selectIndex = 0;
-    document.getElementById("error_nom").innerText = "";
-    document.getElementById("error_edat").innerText = "";
-    document.getElementById("error_postal").innerText = "";
-    document.getElementById("error_correu").innerText = "";
-    document.getElementById("error_contrasenya").innerText = "";
-    document.getElementById("error_confirmar_contrasenya").innerText = "";
-    document.getElementById("error_confirmacio").innerText = "";
-})*/
 
-/*Funció enviar el formulari*/
-/*const enviar = document.getElementById("enviar");*/
+
+
