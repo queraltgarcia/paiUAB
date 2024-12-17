@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treball final</title>
     <link rel="stylesheet" href="treballFinal.css">
-    <h1>Formulari</h1>
+    <h1>Formulari de Validació</h1>
 </head>
 <body>
     <script src="treballFinal.js"></script>
@@ -41,17 +41,19 @@
         <!--Contrasenya-->
         <label for="contrasenya">Contrasenya:</label><br>
         <input type="password" id="contrasenya" placeholder="Contrasenya" onblur="contrasenya()"><br>
+        <input type="checkbox" id="mostrar_contrasenya">Mostra la contrasenya
         <p id="error_contrasenya" class="error"></p>
 
         <!--Confirmar la contrasenya-->
         <label for="confirmar_contrasenya">Confirma la contrasenya:</label><br>
         <input type="password" id="confirmar_contrasenya" placeholder="Contrasenya" onblur="confirmarContrasenya()"><br>
+        <input type="checkbox" id="mostrar_confirmar">Mostra la contrasenya
         <p id="error_confirmar_contrasenya" class="error"></p>
 
         <!--Política de privacitat-->
         <label for="privacitat">Clica conforme estàs d'acord amb la política de privacitat</label>
         <input type="checkbox" id="privacitat" onblur="comprovacio()"><br>
-        <p id="error_confirmacio"></p> <!--class="???"-->
+        <p id="error_privacitat"></p> <!--class="???"-->
 
         <!--Botó esborrar-->
         <button type="button" id="esborrar"></button>
