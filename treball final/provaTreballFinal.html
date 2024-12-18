@@ -12,12 +12,12 @@
 
         <!--Nom i cognoms-->
         <label for="nom">Nom i Cognoms:</label><br>
-        <input type="text" id="nom" placeholder="Escriu aquí" onblur="majuscula()"><br>
+        <input type="text" id="nom" placeholder="Escriu aquí" onblur="majuscula()" onfocus="esborraFormulari()"><br>
         <p id="error_nom" class="error"></p>
 
         <!--Rangs d'edat-->
         <label for="edat">Rang d'edats:</label><br>
-        <select name="rangs_edat" id="rangs_edat" onblur="rangsEdat()">
+        <select name="rangs_edat" id="rangs_edat" onblur="rangsEdat()" onfocus="esborraFormulari()">
             <option value="">Selecciona una opció</option>
             <option value="18-25">18-25</option>
             <option value="26-40">26-40</option>
