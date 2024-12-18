@@ -59,8 +59,8 @@ function validaCodiPostal() {
 }
 
 function validaCorreu() {
-    const email = document.getElementById("email").value.trim();
-    const errorEmail = document.getElementById("error_email");
+    const email = document.getElementById("correu").value.trim();
+    const errorEmail = document.getElementById("error_correu");
 
     // Comptem quantes '@' hi ha
     const numArrovas = email.split("@").length - 1;
@@ -80,27 +80,12 @@ function validaCorreu() {
         errorEmail.textContent = "El punt no pot ser l'últim caràcter.";
     } else {
         errorEmail.textContent = ""; // Tot és correcte
+        contrasenya.disabled = false;
         return true;
     }
 
     return false; // Si alguna validació falla
 }
-
-    /*const Correu = document.getElementById("correu");
-    const valor = Correu.value;*/
-    /*const arrova = valor.split("@");
-    const text = arrova[1];
-    if (arrova.length != 2 && !text.includes(".") || text.startsWith(".") || text.endsWith(".")) {
-        document.getElementById("error_correu").textContent = "Escriviu un correu vàlid.";
-        errors = true;
-        return;
-    /*}else if (!text.includes(".") || text.startsWith(".") || text.endsWith(".")) {
-        document.getElementById("error_correu").textContent = "Escriviu un correu vàlid.";
-        errors = true;*/
-    /*}else{
-        document.getElementById("error_correu").textContent = "";
-    }*/
-
 
 function validaContrasenya() {
     document.getElementById("mostrar_contrasenya").addEventListener("change", function () {
@@ -143,11 +128,12 @@ function validaContrasenya() {
     if(errors){
         return false;
     }
+    confirmar_contrasenya.disabled = false;
     return true;
 }
 
 function validaConfirmarContrasenya() {
-    document.getElementById("mostrar_confirmar_contrasenya").addEventListener("change", function () {
+    document.getElementById("mostrar_confirmar").addEventListener("change", function () {
         const inputConfirmarContrasenya = document.getElementById("confirmar_contrasenya");
         if (this.checked) {
             inputConfirmarContrasenya.type = "text";
@@ -162,6 +148,7 @@ function validaConfirmarContrasenya() {
         errors = true;
     }else{
         document.getElementById("error_confirmar_contrasenya").textContent = "";
+        privacitat.disabled = false;
     }
 }
 
@@ -172,6 +159,8 @@ function validaComprovacio() {
         errors = true;
     }else{
         document.getElementById("error_privacitat").textContent = "";
+        esborrar.disabled = false;
+        enviar.disabled = false;
     }
 }
 
