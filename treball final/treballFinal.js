@@ -31,7 +31,7 @@ function validarFormulari(){
     function codiPostal (postal){
         const Postal = document.getElementById("postal");
         const valor = Postal.value;
-        if (valor.lenght !== 5 || isNaN(valor)){ //isNaN comprova si el valor no és numèric
+        if (valor.length !== 5 || isNaN(valor)){ //isNaN comprova si el valor no és numèric
             document.getElementById("error_postal").textContent = "Escriviu un codi postal vàlid.";
             errors = true;
         }else{
@@ -44,7 +44,7 @@ function validarFormulari(){
         const Correu = document.getElementById("correu");ç
         const valor = Correu.value;
         const arrova = valor.split("@");
-        if (arrova.lenght != 2){
+        if (arrova.length != 2){
             document.getElementById("error_correu").textContent = "Escriviu un correu vàlid.";
             return;
         }
@@ -61,7 +61,7 @@ function validarFormulari(){
     function contrasenya (contrasenya){
         const Contrasenya = document.getElementById("contrasenya");
         const valor = Contrasenya.value;
-        if (valor.lenght < 8){
+        if (valor.length < 8){
             document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir mínim 8 caràcters.";
             errors = true;
             return;
@@ -91,7 +91,7 @@ function validarFormulari(){
     /*Funció confirmació Contrasenya*/
     function confirmarContrasenya (confirmar_contrasenya){
         const Confirmar = document.getElementById("confirmar_contrasenya");
-        if (Confirmar.value !== Contrasenya.value){ /*Contrasenya.value no correspon*/
+        if (Confirmar.value !== contrasenya.value){ /*Contrasenya.value no correspon*/
             document.getElementById("error_confirmar_contrasenya").textContent = "Les contrasenyes no coincideixen.";
             errors = true;
         }else{
