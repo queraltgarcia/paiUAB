@@ -4,13 +4,13 @@ let errors = false;
 function validarFormulari() {
     errors = false;
 
-    majuscula();
-    rangsEdat();
-    codiPostal();
-    correu();
-    contrasenya();
-    confirmarContrasenya();
-    comprovacio();
+    validaMajuscula();
+    validaRangsEdat();
+    validaCodiPostal();
+    validaCorreu();
+    validaContrasenya();
+    validaConfirmarContrasenya();
+    validaComprovacio();
 
     // Resultats
     if (!errors) {
@@ -21,56 +21,88 @@ function validarFormulari() {
 }
 
 // Funcions auxiliars
-function majuscula() {
+function validaMajuscula() {
     const Nom = document.getElementById("nom");
+    const palabra = Nom.value.split(" ");
     Nom.value = Nom.value.toLowerCase().replace(/\b[a-zà-öø-ý]/g, lletra => lletra.toUpperCase());
     if (!isNaN(Nom.value.trim()) || Nom.value.trim() === "") {
         document.getElementById("error_nom").textContent = "Escriviu un nom vàlid.";
         errors = true;
+    }else if (palabra.length >= 3){
+        rangs_edat.disabled = false;
     }else{
         document.getElementById("error_nom").textContent = "";
     }
 }
 
-function rangsEdat() {
+function validaRangsEdat() {
     const Rangs = document.getElementById("rangs_edat");
     if (Rangs.value === "") {
         document.getElementById("error_edat").textContent = "Seleccioneu un rang d'edats.";
         errors = true;
     }else{
         document.getElementById("error_edat").textContent = "";
+        postal.disabled = false;
     }
 }
 
-function codiPostal() {
+function validaCodiPostal() {
     const Postal = document.getElementById("postal");
     const valor = Postal.value;
-    if (valor.length !== 5 || isNaN(valor)) {
+    if (isNaN(valor)) {
         document.getElementById("error_postal").textContent = "Escriviu un codi postal vàlid.";
         errors = true;
     }else{
         document.getElementById("error_postal").textContent = "";
+        correu.disabled = false;
     }
 }
 
-function correu() {
-    const Correu = document.getElementById("correu");
-    const valor = Correu.value;
-    const arrova = valor.split("@");
+function validaCorreu() {
+    const email = document.getElementById("email").value.trim();
+    const errorEmail = document.getElementById("error_email");
+
+    // Comptem quantes '@' hi ha
+    const numArrovas = email.split("@").length - 1;
+
+    // Trobar el punt després de la primera '@'
+    const arrovaIndex = email.indexOf("@");
+    const puntDespresArrova = email.indexOf(".", arrovaIndex + 1);
+
+    // Validacions
+    if (numArrovas !== 1) {
+        errorEmail.textContent = "El correu ha de contenir una sola '@'.";
+    } else if (arrovaIndex === -1 || puntDespresArrova === -1) {
+        errorEmail.textContent = "El correu ha de contenir un punt després de la '@'.";
+    } else if (puntDespresArrova === arrovaIndex + 1) {
+        errorEmail.textContent = "El punt no pot estar immediatament després de la '@'.";
+    } else if (puntDespresArrova === email.length - 1) {
+        errorEmail.textContent = "El punt no pot ser l'últim caràcter.";
+    } else {
+        errorEmail.textContent = ""; // Tot és correcte
+        return true;
+    }
+
+    return false; // Si alguna validació falla
+}
+
+    /*const Correu = document.getElementById("correu");
+    const valor = Correu.value;*/
+    /*const arrova = valor.split("@");
     const text = arrova[1];
-    if (arrova.length != 2) {
+    if (arrova.length != 2 && !text.includes(".") || text.startsWith(".") || text.endsWith(".")) {
         document.getElementById("error_correu").textContent = "Escriviu un correu vàlid.";
         errors = true;
         return;
-    }else if (!text.includes(".") || text.startsWith(".") || text.endsWith(".")) {
+    /*}else if (!text.includes(".") || text.startsWith(".") || text.endsWith(".")) {
         document.getElementById("error_correu").textContent = "Escriviu un correu vàlid.";
-        errors = true;
-    }else{
+        errors = true;*/
+    /*}else{
         document.getElementById("error_correu").textContent = "";
-    }
-}
+    }*/
 
-function contrasenya() {
+
+function validaContrasenya() {
     document.getElementById("mostrar_contrasenya").addEventListener("change", function () {
         const inputContrasenya = document.getElementById("contrasenya");
         if (this.checked) {
@@ -114,7 +146,7 @@ function contrasenya() {
     return true;
 }
 
-function confirmarContrasenya() {
+function validaConfirmarContrasenya() {
     document.getElementById("mostrar_confirmar_contrasenya").addEventListener("change", function () {
         const inputConfirmarContrasenya = document.getElementById("confirmar_contrasenya");
         if (this.checked) {
@@ -133,7 +165,7 @@ function confirmarContrasenya() {
     }
 }
 
-function comprovacio() {
+function validaComprovacio() {
     const Comprova = document.getElementById("privacitat");
     if (!Comprova.checked) {
         document.getElementById("error_privacitat").textContent = "Cal acceptar la política de privacitat.";
@@ -144,13 +176,13 @@ function comprovacio() {
 }
 
 //Afegir elements de validació a mesura que es va escrivint o seleccionant
-document.getElementById("nom").addEventListener("input", majuscula);
-document.getElementById("rangs_edat").addEventListener("change", rangsEdat);
-document.getElementById("postal").addEventListener("input", codiPostal);
-document.getElementById("correu").addEventListener("input", correu);
-document.getElementById("contrasenya").addEventListener("input", contrasenya);
-document.getElementById("confirmar_contrasenya").addEventListener("input", confirmarContrasenya);
-document.getElementById("privacitat").addEventListener("change", comprovacio);
+document.getElementById("nom").addEventListener("input", validaMajuscula);
+document.getElementById("rangs_edat").addEventListener("change", validaRangsEdat);
+document.getElementById("postal").addEventListener("input", validaCodiPostal);
+document.getElementById("correu").addEventListener("input", validaCorreu);
+document.getElementById("contrasenya").addEventListener("input", validaContrasenya);
+document.getElementById("confirmar_contrasenya").addEventListener("input", validaConfirmarContrasenya);
+document.getElementById("privacitat").addEventListener("change", validaComprovacio);
 
 // Afegir events click als botons
 document.getElementById("enviar").addEventListener("click", validarFormulari);
