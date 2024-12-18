@@ -15,7 +15,6 @@ function validarFormulari(){
             errors = true;
         }else{
             document.getElementById("error_nom").textContent = "";
-            document.getElementById("rangs_edat").disabled = false;
         }
     }
     /*Funció error de Rangs d'Edat*/
@@ -26,7 +25,6 @@ function validarFormulari(){
             errors = true;
         }else{
             document.getElementById("error_edat").textContent = "";
-            document.getElementById("postal").disabled = false;
         }
     }
     /*Funció comprovació dels 5 dígits i error de Codi Postal*/
@@ -89,7 +87,6 @@ function validarFormulari(){
             return;
         }
         document.getElementById("error_contrasenya").textContent = "";
-        document.getElementById("confirmar_contrasenya").disabled = false;
     } 
     /*Funció confirmació Contrasenya*/
     function confirmarContrasenya (confirmar_contrasenya){
@@ -99,7 +96,6 @@ function validarFormulari(){
             errors = true;
         }else{
             document.getElementById("error_confirmar_contrasenyes").textContent = "";
-            document.getElementById("privacitat").disabled = false;
         }
     }
     /*Funció comprovació política de privacitat*/
@@ -108,10 +104,8 @@ function validarFormulari(){
         if (!Comprova.checked){
             document.getElementById("error_privacitat").textContent = "Cal acceptar la políitica de privacitat.";
             errors = true;
-            document.getElementById("enviar").disabled = true;
         }else{
             document.getElementById("error_privacitat").textContent = "";
-            document.getElementById("enviar").disabled = false;
         }
     }
     /*Resultats*/
@@ -126,9 +120,6 @@ function validarFormulari(){
 function esborraFormulari(){
     document.getElementById("formulari").reset();
     document.querySelectorAll(".errors").forEach(errors => errors.textContent = "");
-    const inputs = ["rangs_edat", "postal", "correu", "contrasenya", "confirmar_contrasenya", "privacitat"];
-    inputs.forEach(id => document.getElementById(id).disabled = true);
-    document.getElementById("nom").disabled = false;
 }
 
 
