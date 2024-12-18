@@ -11,12 +11,12 @@
 
         <!--Nom i cognoms-->
         <label for="nom">Nom i Cognoms:</label><br>
-        <input type="text" id="nom" placeholder="Escriu aquí"><br>
+        <input type="text" id="nom" placeholder="Escriu aquí" onblur="validaMajuscula()"><br>
         <p id="error_nom" class="error"></p>
 
         <!--Rangs d'edat-->
         <label for="edat">Rang d'edats:</label><br>
-        <select name="rangs_edat" id="rangs_edat">
+        <select name="rangs_edat" id="rangs_edat" onblur="validaRangsEdat()" disabled>
             <option value="">Selecciona una opció</option>
             <option value="18-25">18-25</option>
             <option value="26-40">26-40</option>
@@ -28,29 +28,29 @@
 
         <!--Codi postal-->
         <label for="postal">Codi postal:</label><br>
-        <input type="text" id="postal" placeholder="Escriu aquí"><br>
+        <input type="text" id="postal" placeholder="Escriu aquí" maxlength="5" onblur="validaCodiPostal()" disabled><br>
         <p id="error_postal" class="error"></p>
 
         <!--Correu electrònic-->
         <label for="correu">Correu electrònic:</label><br>
-        <input type="email" id="correu" placeholder="Escriu aquí"><br>
+        <input type="email" id="correu" placeholder="Escriu aquí" onblur="validaCorreu()" disabled><br>
         <p id="error_correu" class="error"></p>
 
         <!--Contrasenya-->
         <label for="contrasenya">Contrasenya:</label><br>
-        <input type="password" id="contrasenya" placeholder="Contrasenya"><br>
+        <input type="password" id="contrasenya" placeholder="Contrasenya" onblur="validaContrasenya()" disabled><br>
         <p id="error_contrasenya" class="error"></p>
         <input type="checkbox" id="mostrar_contrasenya">Mostra la contrasenya
 
         <!--Confirmar la contrasenya-->
         <label for="confirmar_contrasenya">Confirma la contrasenya:</label><br>
-        <input type="password" id="confirmar_contrasenya" placeholder="Contrasenya"><br>
+        <input type="password" id="confirmar_contrasenya" placeholder="Contrasenya" onblur="validaConfirmarContrasenya()" disabled><br>
         <p id="error_confirmar_contrasenya" class="error"></p>
         <input type="checkbox" id="mostrar_confirmar">Mostra la contrasenya
 
         <!--Política de privacitat-->
         <label for="privacitat">Clica conforme estàs d'acord amb la política de privacitat</label>
-        <input type="checkbox" id="privacitat"><br>
+        <input type="checkbox" id="privacitat" onblur="validaComprovacio()" disabled><br>
         <p id="error_privacitat"></p> <!--class="???"-->
 
         <!--Botó esborrar-->
