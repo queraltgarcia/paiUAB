@@ -14,14 +14,14 @@ document.getElementById("exer04").addEventListener("click", exercici04);
 
 //Nombre total d'accidents que es produeixen a l'any seleccionat
 function exercici01() { 
-    const nombreTotalAccidents = obj.length;
-    document.getElementById("resultats").innerHTML = "";
+    const nombreTotalAccidents = obj.length; //Retorna el nombre total d'elements que conté
+    document.getElementById("resultats").innerHTML = ""; //Borra qualsevol tipus de resultat anterior
     document.getElementById("resultats").textContent = "El nombre total d'accidents és de " + nombreTotalAccidents; 
 }
 
 //Dia de la setmana en que s'han produit més accidents
 function exercici02() {
-    const setmana = {
+    const setmana = { //Creació d'objecte on cada clau correspon a un dia de la setmana inicialitzat a 0
         "Dilluns" : 0,
         "Dimarts" : 0,
         "Dimecres" : 0,
@@ -30,18 +30,18 @@ function exercici02() {
         "Dissabte" : 0,
         "Diumenge" : 0,
     }
-    for (const accident of obj){
-        const diaSet = accident.diaSet.trim();
-        if (setmana.hasOwnProperty(diaSet)){
-            setmana[diaSet]++;
+    for (const accident of obj){ //Recorrer tots els elements de l'array obj i per cada accident fa una cosa
+        const diaSet = accident.diaSet.trim(); //Agafa el dia de la setmana de l'objecte accident i elimina espais abans i després del dia
+        if (setmana.hasOwnProperty(diaSet)){ //Mirar si el dia existeix en l'objecte setmana
+            setmana[diaSet]++; //Incrementar el valor de la clau corresponent al dia trobat
         }
     }
     let diaMax = "";
     let maxAccidents = 0;
-    for (const [dia, count] of Object.entries(setmana)){
-        if (count > maxAccidents){
-            maxAccidents = count;
-            diaMax = dia;
+    for (const [dia, count] of Object.entries(setmana)){ //Transforma l'objecte en un array de parells
+        if (count > maxAccidents){ //Comprova si el nombre d'accidents en un dia és superior al màxim actual
+            maxAccidents = count; //Actualització del nou màxim d'accidents
+            diaMax = dia; //Actualització del nou dia amb màxim d'accidents
         }
     }
     document.getElementById("resultats").innerHTML = "";
