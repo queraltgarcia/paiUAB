@@ -91,40 +91,34 @@ function validaCodiPostal() {
     }
 }
 
-//Afegim l'esdeveniment blur als camps per que les funcions s'executin quan l'usuari surti del camp seleccionat.
-document.getElementById("correu").addEventListener("blur", validaCorreu);
-
 function validaCorreu() {
     const email = document.getElementById("correu").value.trim();
-    // Comptem quantes '@' hi ha
-    const numArrovas = email.split("@").length - 1;
-    // Trobar el punt després de la primera '@'
-    const arrovaIndex = email.indexOf("@");
-    const puntDespresArrova = email.indexOf(".", arrovaIndex + 1);
-    // Validacions
-    if (numArrovas !== 1) {
+    const numArrovas = email.split("@").length - 1; //Comptem quantes '@' hi ha
+    const arrovaIndex = email.indexOf("@"); //Retorna l'index de la primera arrova que apareix
+    const puntDespresArrova = email.indexOf(".", arrovaIndex + 1); //Trobar el punt després de la primera '@'
+    if (numArrovas !== 1) { //Comprova que només hi ha una arrova
         document.getElementById("error_correu").textContent = "El correu ha de contenir una sola '@'.";
-    } else if (arrovaIndex === -1 || puntDespresArrova === -1) {
+    } else if (arrovaIndex === -1 || puntDespresArrova === -1) { //Comprova que hi ha un punt després del arrova
         document.getElementById("error_correu").textContent = "El correu ha de contenir un punt després de la '@'.";
-    } else if (puntDespresArrova === arrovaIndex + 1) {
+    } else if (puntDespresArrova === arrovaIndex + 1) { //Comprovar que el punt no estigui just després de l'arrova
         document.getElementById("error_correu").textContent = "El punt no pot estar immediatament després de la '@'.";
-    } else if (puntDespresArrova === email.length - 1) {
+    } else if (puntDespresArrova === email.length - 1) { //Comprovar que el punt no és l'últim caràcter
         document.getElementById("error_correu").textContent = "El punt no pot ser l'últim caràcter.";
     } else {
-        document.getElementById("error_correu").textContent = ""; // Tot és correcte
+        document.getElementById("error_correu").textContent = ""; //Tot és correcte
         contrasenya.disabled = false;
         return true;
     }
-    return false; // Si alguna validació falla
+    return false; //Si alguna validació falla
 }
 
 function validaContrasenya() {
     document.getElementById("mostrar_contrasenya").addEventListener("change", function () {
         const inputContrasenya = document.getElementById("contrasenya");
         if (this.checked) {
-            inputContrasenya.type = "text";
+            inputContrasenya.type = "text"; //Ens mostra la contrasenya
         } else {
-            inputContrasenya.type = "password";
+            inputContrasenya.type = "password"; //Ens amaga la contrasenya
         }
     });
     const Contrasenya = document.getElementById("contrasenya");
@@ -138,46 +132,41 @@ function validaContrasenya() {
     let conteMajuscula = false;
     let conteMinuscula = false;
     let conteNumeros = 0;
-    //Comprovació per cada caràcter de la contrasenya
-    for (let i = 0; i < valor.length; i++) {
+    for (let i = 0; i < valor.length; i++) { //Comprovació per cada caràcter de la contrasenya
         const caracter = valor[i];
-        //Comprovar si és un caràcter especial
-        if (caractersEspecials.indexOf(caracter) !== -1) {
+        if (caractersEspecials.indexOf(caracter) !== -1) { //Comprovar si és un caràcter especial
             conteCaracterEspecial = true;
         }
-        //Comprovar si és una majuscula
-        if (caractersMajuscules.indexOf(caracter) !== -1){
+        if (caractersMajuscules.indexOf(caracter) !== -1){ //Comprovar si és una majuscula
             conteMajuscula = true;
         }
-        //Comprovar si és una minuscula
-        if (caractersMinuscules.indexOf(caracter) !== -1){
+        if (caractersMinuscules.indexOf(caracter) !== -1){ //Comprovar si és una minuscula
             conteMinuscula = true;
         }
-        //Comptador de numeros
-        if (caractersNumeros.indexOf(caracter) !== -1){
+        if (caractersNumeros.indexOf(caracter) !== -1){ //Comptador de numeros
             conteNumeros++;
         }
     }
-    if (valor.length < 8) {
+    if (valor.length < 8) { //Comprovar si té mínim 8 caràcters
         document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir mínim 8 caràcters.";
         errors = true;
-    }else if (!conteMajuscula) {
+    }else if (!conteMajuscula) { //Comprovar si al menys té una majúscula
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys una majúscula.";
         errors = true;
-    }else if (!conteMinuscula) {
+    }else if (!conteMinuscula) { //Comprovar si té al menys una minúscula
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys una minúscula.";
         errors = true;
-    }else if (conteNumeros < 2) {
+    }else if (conteNumeros < 2) { //Comprovar si té al menys 2 dígits
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys dos dígits.";
         errors = true;
-    }else if (!conteCaracterEspecial) {
+    }else if (!conteCaracterEspecial) { //Comprovar si té al menys un aràcter especial
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys un caràcter especial.";
         errors = true;
     }else{
         document.getElementById("error_contrasenya").textContent = "";
     }
     if(errors){
-        return false;
+        return false; //Indica que la contrasenya no és vàlida
     }
     confirmar_contrasenya.disabled = false;
     return true;
