@@ -50,7 +50,7 @@ function exercici02() {
 
 //Accidents per districte
 function exercici03() {
-    const districtes = {
+    const districtes = { //Creació d'objecte on cada clau correspon al número de cada districte inicialitzat a 0
         "-1" : 0,
         "1" : 0,
         "2" : 0,
@@ -63,19 +63,18 @@ function exercici03() {
         "9" : 0,
         "10" : 0,
     }
-    for(const accident of obj){
+    for(const accident of obj){ //Recorre tots els elements de l'array obj
         const nDist = accident.nDist; //Número del districte
-        if (districtes.hasOwnProperty(nDist)){
-            districtes[nDist]++;
+        if (districtes.hasOwnProperty(nDist)){ //Comprovació de l'existència del districte en l'objecte creat
+            districtes[nDist]++; //Incrementa el comptador d'accidents per aquell districte
         }
     }
-    //Crear la llista desordenada i afegir-ne el districte i nombre d'accidents
-    const ul = document.createElement("ul");
-    for (const [districte, accidents] of Object.entries(districtes)){
+    const ul = document.createElement("ul"); //Creació d'una llista desordenada
+    for (const [districte, accidents] of Object.entries(districtes)){ //Transforma l'objecte en una llista de parells
         const li = document.createElement("li");
-        const nomDistricte = districte === "-1" ? "Altres" : `Districte ${districte}`;
-        li.textContent = `${nomDistricte}: ${accidents} accidents`; 
-        ul.appendChild(li);
+        const nomDistricte = districte === "-1" ? "Altres" : `Districte ${districte}`; //Si el districte és -1 se li asigna el nom Altres
+        li.textContent = `${nomDistricte}: ${accidents} accidents`; //L'ordre que volem que surtin els elements de la llista
+        ul.appendChild(li); //Per afegir a la llista desordenada els elements que es vagin creant
     }
     document.getElementById("resultats").innerHTML = "";
     document.getElementById("resultats").appendChild(ul);
@@ -85,21 +84,14 @@ function exercici03() {
 function exercici04() {
     creaFormulari();
     const selectElement = document.getElementById("districtes");
-    selectElement.addEventListener("change", function(){
+    selectElement.addEventListener("change", function(){ //L'usuari tria l'opció que vulgui
         const districteSeleccionat = this.value //Obtenim el distrecte que s'ha seleccionat
         calculAccidentsDistricte(districteSeleccionat);
     })
-    //Calculem i mostrem el nombre d'accidents en el districte seleccionat
-    function calculAccidentsDistricte(districteSeleccionat){
-        const nDistricte = districteSeleccionat === "Altres" ? -1 : obj.find(element => element.districte === districteSeleccionat)?.nDist;
-        // Comptar el nombre d'accidents per al districte seleccionat
-        const accidentsEnDistricte = obj.filter(accident => accident.nDist === nDistricte).length;
-        // Actualitzar el resultat
+    function calculAccidentsDistricte(districteSeleccionat){ //Calculem i mostrem el nombre d'accidents en el districte seleccionat
+        const nDistricte = districteSeleccionat === "Altres" ? -1 : obj.find(element => element.districte === districteSeleccionat)?.nDist; //Si es selecciona altres es pregunta si correspon a -1 per a poder buscar-ho en el CSV de manera correcte
+        const accidentsEnDistricte = obj.filter(accident => accident.nDist === nDistricte).length; //Comptar el nombre d'accidents per al districte seleccionat
         const resultats = document.getElementById("resultats");
-        if (!resultats) {
-            console.error("No s'ha trobat l'element amb id 'resultats'.");
-            return;
-        }
         resultats.innerHTML = `El nombre d'accidents al districte seleccionat (${districteSeleccionat}) és de ${accidentsEnDistricte}`;
     }
 }
