@@ -3,7 +3,7 @@ let errors = false;
 // Funció validació del formulari
 function validarFormulari() {
     errors = false;
-
+    //Crida de les funcions de validació de cada apartat
     validaMajuscula();
     validaRangsEdat();
     validaCodiPostal();
@@ -13,13 +13,13 @@ function validarFormulari() {
     validaComprovacio();
 
     // Alerta formulari
-    if (!errors) {
+    if (!errors) { //Si no hi ha cap error envia alerta
         alert("Formulari enviat correctament");
-    } else {
+    } else { //Si queda algún error per resoldre envia alerta
         alert("Encara hi ha algún error per resoldre");
     }
 
-    //Resultats
+    //Resultats que apareixen un cop s'accepta l'alerta "Formulari enviat correctament"
     document.getElementById("resultats").textContent = "Resultats del formulari de validació:"
     const textNomCognoms = document.getElementById("nom").value;
     document.getElementById("resultatsNomCognom").textContent = "Nom i Gognoms: " + textNomCognoms;
@@ -32,7 +32,7 @@ function validarFormulari() {
     const textContrasenya = document.getElementById("contrasenya").value;
     document.getElementById("resultatsContrasenya").textContent = "Contrasenya: " + textContrasenya;
 
-    //Borrarem els textos del formulari
+    //Borrarem els textos del formulari per a que només es vegi la informació dels resultats
     document.getElementById("formulari").reset();
 
 }
@@ -40,7 +40,7 @@ function validarFormulari() {
 // Funcions auxiliars
 function validaMajuscula() {
     const Nom = document.getElementById("nom");
-    // Formata cada paraula a majúscula per la primera lletra
+    //Transforma cada primera lletra de cada paraula en majúscula
     Nom.value = Nom.value
         .toLowerCase()
         .split(" ")
