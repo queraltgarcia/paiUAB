@@ -42,13 +42,13 @@ function validaMajuscula() {
     const Nom = document.getElementById("nom");
     //Transforma cada primera lletra de cada paraula en majúscula
     Nom.value = Nom.value
-        .toLowerCase()
-        .split(" ")
-        .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
-        .join(" ");
+        .toLowerCase() //Converteix text en minúscules
+        .split(" ") //Divideix el text en paraules separades per espais
+        .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1)) //Capitalitza la primera lletra de cada paraula
+        .join(" "); //Torna a unir les paraules en una sola cadena separada per espais
     // Validació del contingut
-    const nomTrim = Nom.value.trim(); // Treu espais al principi i al final
-    function esNomValid (nom){
+    const nomTrim = Nom.value.trim(); //Trim treu espais al principi i al final
+    function esNomValid (nom){ //Funció que verifica que el text només contingui caràcters alfabètics
         const lletresValides = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚçÇñÑüÜ ";
         for (let i = 0; i < nom.length; i++){
             if (!lletresValides.includes(nom[i])){
@@ -60,8 +60,8 @@ function validaMajuscula() {
     if (!esNomValid(nomTrim) || nomTrim === "") { //Comprova si el camp és un número o esta vuit
         document.getElementById("error_nom").textContent = "Escriviu un nom vàlid.";
         errors = true; 
-    }else if (nomTrim.split(" ").length >= 3) {
-        rangs_edat.disabled = false;
+    }else if (nomTrim.split(" ").length >= 3) { //Comprova que el camp no passa de 3 o més paraules
+        rangs_edat.disabled = false; //Proporciona abilitar el següent camp
         document.getElementById("error_nom").textContent = ""; // Esborra el missatge d'error
     } else {
         document.getElementById("error_nom").textContent = ""; // Esborra el missatge d'error si no hi ha problemes
