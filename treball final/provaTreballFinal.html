@@ -4,63 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treball final</title>
-    <h1>Formulari de Validació</h1>
+    <link rel="stylesheet" href="provaTreballFinal.css">
+    <h1>Formulari de Validació</h1><br>
 </head>
 <body>
     <form id="formulari">
 
         <!--Nom i cognoms-->
-        <label for="nom">Nom i Cognoms:</label><br>
+        <label for="nom">Nom i Cognoms:</label>
         <input type="text" id="nom" placeholder="Escriu aquí" onblur="validaMajuscula()"><br>
-        <p id="error_nom" class="error"></p>
+        <p id="error_nom" class="error"></p><br>
 
         <!--Rangs d'edat-->
-        <label for="edat">Rang d'edats:</label><br>
-        <select name="rangs_edat" id="rangs_edat" onblur="validaRangsEdat()" disabled>
+        <label for="edat">Rang d'edats:</label>
+        <select name="rangs_edat" id="rangs_edat" onblur="validaRangsEdat()" disabled><br>
             <option value="">Selecciona una opció</option>
             <option value="18-25">18-25</option>
             <option value="26-40">26-40</option>
             <option value="41-55">41-55</option>
             <option value="56-65">56-65</option>
             <option value="més de 65">més de 65</option>
-        </select><br><br>
-        <p id="error_edat" class="error"></p>
+        </select>
+        <p id="error_edat" class="error"></p><br>
 
         <!--Codi postal-->
-        <label for="postal">Codi postal:</label><br>
+        <label for="postal">Codi postal:</label>
         <input type="text" id="postal" placeholder="Escriu aquí" maxlength="5" onblur="validaCodiPostal()" disabled><br>
-        <p id="error_postal" class="error"></p>
+        <p id="error_postal" class="error"></p><br>
 
         <!--Correu electrònic-->
-        <label for="correu">Correu electrònic:</label><br>
+        <label for="correu">Correu electrònic:</label>
         <input type="email" id="correu" placeholder="Escriu aquí" onblur="validaCorreu()" disabled><br>
-        <p id="error_correu" class="error"></p>
+        <p id="error_correu" class="error"></p><br>
 
         <!--Contrasenya-->
-        <label for="contrasenya">Contrasenya:</label><br>
+        <label for="contrasenya">Contrasenya:</label>
         <input type="password" id="contrasenya" placeholder="Contrasenya" onblur="validaContrasenya()" disabled><br>
         <p id="error_contrasenya" class="error"></p>
-        <input type="checkbox" id="mostrar_contrasenya">Mostra la contrasenya
+        <input type="checkbox" id="mostrar_contrasenya">Mostra la contrasenya <br><br>
 
         <!--Confirmar la contrasenya-->
-        <label for="confirmar_contrasenya">Confirma la contrasenya:</label><br>
+        <label for="confirmar_contrasenya">Confirma la contrasenya:</label>
         <input type="password" id="confirmar_contrasenya" placeholder="Contrasenya" onblur="validaConfirmarContrasenya()" disabled><br>
         <p id="error_confirmar_contrasenya" class="error"></p>
-        <input type="checkbox" id="mostrar_confirmar">Mostra la contrasenya
+        <input type="checkbox" id="mostrar_confirmar">Mostra la contrasenya <br><br>
 
         <!--Política de privacitat-->
         <label for="privacitat">Clica conforme estàs d'acord amb la política de privacitat</label>
         <input type="checkbox" id="privacitat" onblur="validaComprovacio()" disabled><br>
-        <p id="error_privacitat"></p> <!--class="???"-->
+        <p id="error_privacitat"></p>
 
         <!--Botó esborrar-->
         <button type="button" id="esborrar">Esborrar</button>
 
         <!--Botó d'enviar-->
-        <button type="button" id="enviar">Enviar</button>
-
-        <!--Resultats-->
-        <p id="resultats"></p>
+        <button type="button" id="enviar">Enviar</button> <br> <br>
+        <div id="resultats"></div>
+        <div id="resultatsNomCognom"></div>
+        <div id="resultatsRangEdats"></div>
+        <div id="resultatsCodiPostal"></div>
+        <div id="resultatsCorreu"></div>
+        <div id="resultatsContrasenya"></div>
     </form> 
     <script src="provaTreballFinal.js"></script>
 </body>
