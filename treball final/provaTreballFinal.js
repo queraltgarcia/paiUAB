@@ -70,7 +70,7 @@ function validaMajuscula() {
 
 function validaRangsEdat() {
     const Rangs = document.getElementById("rangs_edat");
-    if (!Rangs.value || Rangs.value === "") {
+    if (!Rangs.value || Rangs.value === "") { //Comprova si el valor del camp no existeix o si el usuari no ha seleccionat res
         document.getElementById("error_edat").textContent = "Seleccioneu un rang d'edats.";
         errors = true;
     }else{
@@ -82,7 +82,7 @@ function validaRangsEdat() {
 function validaCodiPostal() {
     const Postal = document.getElementById("postal");
     const valor = Postal.value;
-    if (isNaN(valor)) {
+    if (isNaN(valor)) { //isNaN comprova si el valor no és un número
         document.getElementById("error_postal").textContent = "Escriviu un codi postal vàlid.";
         errors = true;
     }else{
