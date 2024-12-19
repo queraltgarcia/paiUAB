@@ -176,14 +176,14 @@ function validaConfirmarContrasenya() {
     document.getElementById("mostrar_confirmar").addEventListener("change", function () {
         const inputConfirmarContrasenya = document.getElementById("confirmar_contrasenya");
         if (this.checked) {
-            inputConfirmarContrasenya.type = "text";
+            inputConfirmarContrasenya.type = "text"; //Ens mostra la contrasenya
         } else {
-            inputConfirmarContrasenya.type = "password";
+            inputConfirmarContrasenya.type = "password"; //No ens mostra la contrasenya
         }
     });
     const Contrasenya = document.getElementById("contrasenya");
     const Confirmar = document.getElementById("confirmar_contrasenya");
-    if (Confirmar.value !== Contrasenya.value) {
+    if (Confirmar.value !== Contrasenya.value) { //Comparar contrasenyes
         document.getElementById("error_confirmar_contrasenya").textContent = "Les contrasenyes no coincideixen.";
         errors = true;
     }else{
@@ -194,10 +194,10 @@ function validaConfirmarContrasenya() {
 
 function validaComprovacio() {
     const Comprova = document.getElementById("privacitat");
-    if (!Comprova.checked) {
+    if (!Comprova.checked) { //Si no està marcat el checkbox
         document.getElementById("error_privacitat").textContent = "Cal acceptar la política de privacitat.";
         errors = true;
-    }else{
+    }else{ //Si està marcat el checkbox
         document.getElementById("error_privacitat").textContent = "";
         esborrar.disabled = false;
         enviar.disabled = false;
@@ -219,6 +219,6 @@ document.getElementById("esborrar").addEventListener("click", esborraFormulari);
 
 // Funció esborrar formulari
 function esborraFormulari() {
-    document.getElementById("formulari").reset();
-    document.querySelectorAll(".errors").forEach(errors => errors.textContent = "");
+    document.getElementById("formulari").reset(); //Reseteja el formulari
+    document.querySelectorAll(".errors").forEach(errors => errors.textContent = ""); //Si ha quedat algún error, el borra
 }
