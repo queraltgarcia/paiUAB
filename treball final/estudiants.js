@@ -12,14 +12,27 @@ document.getElementById("exer04").addEventListener("click", exercici04);
 // Teniu ja definides les funcions de cada exercici (menys del cinquè), només cal
 // que ompliu el codi necessari.
 
-function exercici01() {
-
-    
+//Nombre total d'accidents que es produeixen a l'any seleccionat
+function exercici01() { 
+    const nombreTotalAccidents = obj.length;
+    const anyAccidents = document.getElementById("any");
+    document.getElementById("resultats").textContent = "El nombre total d'accidents l'any " + anyAccidents + " és de " + nombreTotalAccidents; 
 }
 
-function exercici02() {
+//Dia de la setmana en que s'han produit més accidents
+/*function exercici02() {
+    const setmana = {
+        "Dilluns" = 0;
+        "Dimarts" = 0;
+        "Dimecres" = 0;
+        "Dijous" = 0;
+        "Divendres" = 0;
+        "Dissabte" = 0;
+        "Diumenge" = 0;
+    }
+    for obj 
 
-}
+}*/
 
 
 function exercici03() {
