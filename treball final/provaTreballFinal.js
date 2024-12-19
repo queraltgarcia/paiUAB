@@ -12,32 +12,65 @@ function validarFormulari() {
     validaConfirmarContrasenya();
     validaComprovacio();
 
-    // Resultats
+    // Alerta formulari
     if (!errors) {
-        document.getElementById("resultats").textContent = "Formulari enviat correctament";
+        alert("Formulari enviat correctament");
     } else {
-        document.getElementById("resultats").textContent = "";
+        alert("Encara hi ha algún error per resoldre");
     }
+
+    //Resultats
+    document.getElementById("resultats").textContent = "Resultats del formulari de validació:"
+    const textNomCognoms = document.getElementById("nom").value;
+    document.getElementById("resultatsNomCognom").textContent = "Nom i Gognoms: " + textNomCognoms;
+    const textRangEdats = document.getElementById("rangs_edat").value;
+    document.getElementById("resultatsRangEdats").textContent = "Rang d'edats: " + textRangEdats;
+    const textCodiPostal = document.getElementById("postal").value;
+    document.getElementById("resultatsCodiPostal").textContent = "Codi postal: " + textCodiPostal;
+    const textCorreu = document.getElementById("correu").value;
+    document.getElementById("resultatsCorreu").textContent = "Correu electrònic: " + textCorreu;
+    const textContrasenya = document.getElementById("contrasenya").value;
+    document.getElementById("resultatsContrasenya").textContent = "Contrasenya: " + textContrasenya;
+
+    //Borrarem els textos del formulari
+    document.getElementById("formulari").reset();
+
 }
 
 // Funcions auxiliars
 function validaMajuscula() {
     const Nom = document.getElementById("nom");
-    const palabra = Nom.value.split(" ");
-    Nom.value = Nom.value.toLowerCase().replace(/\b[a-zà-öø-ý]/g, lletra => lletra.toUpperCase());
-    if (!isNaN(Nom.value.trim()) || Nom.value.trim() === "") {
+    // Formata cada paraula a majúscula per la primera lletra
+    Nom.value = Nom.value
+        .toLowerCase()
+        .split(" ")
+        .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+        .join(" ");
+    // Validació del contingut
+    const nomTrim = Nom.value.trim(); // Treu espais al principi i al final
+    function esNomValid (nom){
+        const lletresValides = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚçÇñÑüÜ ";
+        for (let i = 0; i < nom.length; i++){
+            if (!lletresValides.includes(nom[i])){
+                return false; //Trobem un caràcter no vàlid
+            }
+        }
+        return true; //Tots els caràcters són vàlids
+    }
+    if (!esNomValid(nomTrim) || nomTrim === "") { //Comprova si el camp és un número o esta vuit
         document.getElementById("error_nom").textContent = "Escriviu un nom vàlid.";
-        errors = true;
-    }else if (palabra.length >= 3){
+        errors = true; 
+    }else if (nomTrim.split(" ").length >= 3) {
         rangs_edat.disabled = false;
-    }else{
-        document.getElementById("error_nom").textContent = "";
+        document.getElementById("error_nom").textContent = ""; // Esborra el missatge d'error
+    } else {
+        document.getElementById("error_nom").textContent = ""; // Esborra el missatge d'error si no hi ha problemes
     }
 }
 
 function validaRangsEdat() {
     const Rangs = document.getElementById("rangs_edat");
-    if (Rangs.value === "") {
+    if (!Rangs.value || Rangs.value === "") {
         document.getElementById("error_edat").textContent = "Seleccioneu un rang d'edats.";
         errors = true;
     }else{
@@ -58,32 +91,30 @@ function validaCodiPostal() {
     }
 }
 
+//Afegim l'esdeveniment blur als camps per que les funcions s'executin quan l'usuari surti del camp seleccionat.
+document.getElementById("correu").addEventListener("blur", validaCorreu);
+
 function validaCorreu() {
     const email = document.getElementById("correu").value.trim();
-    const errorEmail = document.getElementById("error_correu");
-
     // Comptem quantes '@' hi ha
     const numArrovas = email.split("@").length - 1;
-
     // Trobar el punt després de la primera '@'
     const arrovaIndex = email.indexOf("@");
     const puntDespresArrova = email.indexOf(".", arrovaIndex + 1);
-
     // Validacions
     if (numArrovas !== 1) {
-        errorEmail.textContent = "El correu ha de contenir una sola '@'.";
+        document.getElementById("error_correu").textContent = "El correu ha de contenir una sola '@'.";
     } else if (arrovaIndex === -1 || puntDespresArrova === -1) {
-        errorEmail.textContent = "El correu ha de contenir un punt després de la '@'.";
+        document.getElementById("error_correu").textContent = "El correu ha de contenir un punt després de la '@'.";
     } else if (puntDespresArrova === arrovaIndex + 1) {
-        errorEmail.textContent = "El punt no pot estar immediatament després de la '@'.";
+        document.getElementById("error_correu").textContent = "El punt no pot estar immediatament després de la '@'.";
     } else if (puntDespresArrova === email.length - 1) {
-        errorEmail.textContent = "El punt no pot ser l'últim caràcter.";
+        document.getElementById("error_correu").textContent = "El punt no pot ser l'últim caràcter.";
     } else {
-        errorEmail.textContent = ""; // Tot és correcte
+        document.getElementById("error_correu").textContent = ""; // Tot és correcte
         contrasenya.disabled = false;
         return true;
     }
-
     return false; // Si alguna validació falla
 }
 
@@ -99,24 +130,44 @@ function validaContrasenya() {
     const Contrasenya = document.getElementById("contrasenya");
     const valor = Contrasenya.value;
     const caractersEspecials = "!@#$%^&*()_+{};:|,.<>?-=_`~";
+    const caractersMajuscules = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const caractersMinuscules = "abcdefghijklmnopqrstuvwxyz";
+    const caractersNumeros = "0123456789";
     let errors = false;
     let conteCaracterEspecial = false;
+    let conteMajuscula = false;
+    let conteMinuscula = false;
+    let conteNumeros = 0;
+    //Comprovació per cada caràcter de la contrasenya
     for (let i = 0; i < valor.length; i++) {
-        if (caractersEspecials.indexOf(valor[i]) !== -1) {
+        const caracter = valor[i];
+        //Comprovar si és un caràcter especial
+        if (caractersEspecials.indexOf(caracter) !== -1) {
             conteCaracterEspecial = true;
-            break;
+        }
+        //Comprovar si és una majuscula
+        if (caractersMajuscules.indexOf(caracter) !== -1){
+            conteMajuscula = true;
+        }
+        //Comprovar si és una minuscula
+        if (caractersMinuscules.indexOf(caracter) !== -1){
+            conteMinuscula = true;
+        }
+        //Comptador de numeros
+        if (caractersNumeros.indexOf(caracter) !== -1){
+            conteNumeros++;
         }
     }
     if (valor.length < 8) {
         document.getElementById("error_contrasenya").textContent = "La contrasenya ha de tenir mínim 8 caràcters.";
         errors = true;
-    }else if (!/[A-Z]/.test(valor)) {
+    }else if (!conteMajuscula) {
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys una majúscula.";
         errors = true;
-    }else if (!/[a-z]/.test(valor)) {
+    }else if (!conteMinuscula) {
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys una minúscula.";
         errors = true;
-    }else if (!/\d.*\d/.test(valor)) {
+    }else if (conteNumeros < 2) {
         document.getElementById("error_contrasenya").textContent = "Ha de tenir almenys dos dígits.";
         errors = true;
     }else if (!conteCaracterEspecial) {
