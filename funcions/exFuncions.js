@@ -28,3 +28,28 @@
     }
     return suma;
 }*/
+
+//3.4. - Feu una funció que calculi la nota final d'un alumne.
+//L'script ha de rebre per teclat el següent:  Nota final d’avaluació continuada, Nota de pràctiques i Nota d’examen,
+//i es mostrarà per pantalla la nota final en base a les formules donades.
+function notaFinal (notaAC, notaPract, notaExam){
+    let notaFi = 0;
+    let notaFiEscrit = "";
+    if (notaAC >= 5){
+        notaFi = 0.2*notaAC + 0.4*notaPract + 0.4*notaExam;
+    }else{
+        notaFi = 0.4*notaPract + 0.6*notaExam;
+    }
+    if (notaFi < 5){
+        notaFiEscrit = "D";
+    }else if(5 <= notaFi < 6.5){
+        notaFiEscrit = "C";
+    }else if(6.5 <= notaFi < 8){
+        notaFiEscrit = "B";
+    }else if(8 <= notaFi < 10){
+        notaFiEscrit = "A";
+    }else if(notaFi === 10){
+        notaFiEscrit = "H"
+    }
+    return notaFiEscrit;
+}
