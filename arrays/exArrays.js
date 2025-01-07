@@ -103,9 +103,20 @@ for (let i=0; i<mida; i++){
 let mitjana = suma / taula.length;
 console.log(mitjana);*/
 
-//21.11. -  Fes un programa que calculi i escrigui a la consola els valors més gran i més petit de la taula. 
-/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];*/
-
+//21.11. -  Fes un programa que calculi i escrigui a la consola el valor més gran i més petit de la taula. 
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let numGran = taula[0];
+let numPetit = taula[0];
+for(let i = 1; i < taula.length; i++){
+    if (taula[i] > numGran){
+        numGran = taula[i];
+    }
+    if (taula[i] < numPetit){
+        numPetit = taula[i];
+    }
+}
+console.log("El valor més gran és: " + numGran);
+console.log("El valor més petit és: " + numPetit);*/
 
 //21.12. - Fes un programa que crei una nova taula on s’emmagatzemin només els valors parells de la taula i que escrigui el contingut d’aquesta nova taula a la consola.
 /*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
@@ -117,3 +128,69 @@ for (let i=0; i<mida; i++){
     }
 }
 console.log(taulaNova);*/
+
+//21.13. - Fes un programa que demani a l’usuari un valor (fent servir prompt()) i escrigui a la consola quants cops apareix aquest valor a la taula. 
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let num = parseInt(prompt("Introdueix un nombre: "));
+let contador = 0;
+for (let i = 0; i < taula.length; i++){
+    if (taula[i] === num){
+        contador++;
+    }
+}
+console.log("El número total de vegades que surt el nombre introduït a la taula és de: " + contador);*/
+
+//21.14. - Fes un programa que, donats dos arrays de números:
+//Comprovi si tots dos tenen el mateix número d’elements i, si és així:
+//Crei una nova taula que contingui la suma de cada element que es trobi a la mateixa posició als dos arrys.
+/*let arrayPrimer = [1,2,3];
+let arraySegon = [2,3,4];
+if (arrayPrimer.length === arraySegon.length){
+    arraySuma = [];
+    for (let i = 0; i < arrayPrimer.length; i++){
+        arraySuma[i] = arrayPrimer[i] + arraySegon[i];
+    }
+}
+console.log(arraySuma);*/
+
+//21.15. - Fes un programa que, donats una taula amb números, guardi a una nova taula els valors de la primera però donant-li la volta. 
+/*let array = [1,2,3,4,5];
+let arrayVolta =[];
+for (let i = 0; i < array.length; i++){
+    arrayVolta[array.length - 1 - i] = array[i];
+}
+console.log(arrayVolta);*/
+
+//21.16. - Fes un programa que demani un número a l’usuari (fent servir prompt()) i escrigui a la consola si es troba o no a la taula.
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let num = parseInt(prompt("Introdueix un nombre: "));
+let i = 0;
+let trobat = false;
+while (i < taula.length){
+    if (num === taula[i]){
+        console.log("El número es troba a la taula");
+        trobat = true;
+        break;
+    }
+    i++
+}
+if (trobat === false){
+    console.log("El número no es troba a la taula");
+}*/
+
+//21.17. - Fes un programa que demani un número a l’usuari (fent servir prompt()) i escrigui a la consola si hi ha algun valor més gran a la taula.
+let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let num = parseInt(prompt("Introdueix un nombre: "));
+let i = 0;
+let varMesGran = false;
+while (i < taula.length){
+    if (num < taula[i]){
+        console.log("Hi ha un valor més gran a la taula");
+        varMesGran = true;
+        break;
+    }
+    i++;
+}
+if (varMesGran === false){
+    console.log("No hi ha cap valor més gran a la taula");
+}
