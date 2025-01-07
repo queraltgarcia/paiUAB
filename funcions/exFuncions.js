@@ -32,7 +32,7 @@
 //3.4. - Feu una funció que calculi la nota final d'un alumne.
 //L'script ha de rebre per teclat el següent:  Nota final d’avaluació continuada, Nota de pràctiques i Nota d’examen,
 //i es mostrarà per pantalla la nota final en base a les formules donades.
-function notaFinal (notaAC, notaPract, notaExam){
+/*function notaFinal (notaAC, notaPract, notaExam){
     let notaFi = 0;
     let notaFiEscrit = "";
     if (notaAC >= 5){
@@ -52,4 +52,28 @@ function notaFinal (notaAC, notaPract, notaExam){
         notaFiEscrit = "H"
     }
     return notaFiEscrit;
-}
+}*/
+
+//3.5. - Hem organitzat un concurs a Twitter que consisteix en fer relats curs (màxim 280 caràcters) amb el màxim número de paraules de 5 caràcters.
+// Per poder donar el premi, el que volem fer és classificar tots  els tuits segons el nombre de paraules de 5 caràcters que tenen i, per tant,
+// necessitem una funció que, donada una frase, ens retorni el número de paraules de 5 caràcters que té.
+/*function concurs (frase, numLletres){
+    let lletres = 0;
+    let paraules5Lletres = 0;
+    let i = 0;
+    while (frase[i] !== "."){
+        if (frase[i] === " "){
+            if(lletres === numLletres){
+                paraules5Lletres++;
+            }
+            lletres = 0;
+        }else if(frase[i] !== ","){
+            lletres++;
+        }
+        i++;
+    }
+    if (lletres === numLletres){
+        paraules5Lletres++;
+    }
+    return paraules5Lletres;
+}*/
