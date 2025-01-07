@@ -179,7 +179,7 @@ if (trobat === false){
 }*/
 
 //21.17. - Fes un programa que demani un número a l’usuari (fent servir prompt()) i escrigui a la consola si hi ha algun valor més gran a la taula.
-let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
 let num = parseInt(prompt("Introdueix un nombre: "));
 let i = 0;
 let varMesGran = false;
@@ -193,4 +193,70 @@ while (i < taula.length){
 }
 if (varMesGran === false){
     console.log("No hi ha cap valor més gran a la taula");
+}*/
+
+//21.18. - Fes un programa que escrigui “Sí” si el primer número de la taula està repetit i “No” en cas contrari. 
+/*let taula = [23,45,63,78,23,68,3,78,32,53,93,21,53,5,62,78];
+let primerValor = taula[0];
+let repetit = false;
+let i = 1;
+while (i < taula.length){
+    if (taula[i] === primerValor){
+        console.log("El primer valor està repetit");
+        repetit = true;
+        break;
+    }
+    i++
+}
+if (repetit === false){
+    console.log("El primer valor no està repetit");
+}*/
+
+//21.19. -  Fes un programa que donades dues taules de la mateixa mida, crei una nova taula amb la unió de les dues taules de manera alterna.
+/*let array1 = [1,2,3];
+let array2 = [4,5,6];
+let arrayNova = [];
+for (let i = 0; i < array1.length; i++){
+    arrayNova[2 * i] = array1[i];
+    arrayNova[2 * i + 1] = array2[i];
+}
+console.log(arrayNova);*/
+
+//21.20. - Fes un programa que, donada una taula i un valor, crei una nova taula sense el valor proporcionat. 
+/*let taula = [1,2,3,4,5];
+let novaTaula = [];
+let valorEliminar = parseInt(prompt("Introdueix el valor que vols eliminar de la taula: "));
+let j = 0;
+for (let i = 0; i < taula.length; i++){
+    if (taula[i] !== valorEliminar){
+        novaTaula[j] = taula[i];
+        j++
+    }
+} 
+console.log(novaTaula);*/
+
+//21.21. -  Fes un programa que, donada una taula i una posició, guardi a una altra taula la taula inicial, però des de la posició donada fins al final.
+/*let taula = [1,2,3,4,5];
+let posicio = parseInt(prompt("Introdueix la posició desitjada: "));
+let novaTaula = [];
+for (let i = posicio; i < taula.length; i++){
+    novaTaula[i - posicio] = taula[i];
+}
+console.log(novaTaula);*/
+
+//21.22. - Fes un programa que, donada una taula escrigui a la pantalla el primer número que estigui repetit. 
+let taula = [1,2,3,4,5,3,6,7,8,9];
+let numRepetit;
+let trobat = false;
+for (let i = 0; i < taula.length; i++){
+    for (let j = i + 1; j < taula.length; j++)
+        if (taula[i] === taula[j]){
+            numRepetit = taula[i];
+            trobat = true;
+        }
+}
+if (trobat === true){
+    console.log("El número repetit és: "+ numRepetit);
+}else{
+    console.log("No hi ha cap número repetit");
 }
