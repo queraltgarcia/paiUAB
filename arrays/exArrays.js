@@ -245,7 +245,7 @@ for (let i = posicio; i < taula.length; i++){
 console.log(novaTaula);*/
 
 //21.22. - Fes un programa que, donada una taula escrigui a la pantalla el primer número que estigui repetit. 
-let taula = [1,2,3,4,5,3,6,7,8,9];
+/*let taula = [1,2,3,4,5,3,6,7,8,9];
 let numRepetit;
 let trobat = false;
 for (let i = 0; i < taula.length; i++){
@@ -259,4 +259,4 @@ if (trobat === true){
     console.log("El número repetit és: "+ numRepetit);
 }else{
     console.log("No hi ha cap número repetit");
-}
+}*/
