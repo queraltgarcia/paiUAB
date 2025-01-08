@@ -256,4 +256,24 @@ function comptadorA (cadena){
     return lletra;
 }*/
 
-//19.19. -  Donada una taula amb números entre 0 i 99, retorni una altra taula de 100 posicions, on hi hagi guardat a cada posició el número de vegades que apareix un determinat número.
+//19.19. -  Donada una taula amb números entre 0 i 9, retorni una altra taula de 10 posicions, on hi hagi guardat a cada posició el número de vegades que apareix un determinat número.
+/*function creaTaulaVegades (taula){
+    let novaTaula = [];
+    let i = 0;
+    while(i < taula.length){
+        novaTaula[i] = comptaCaracter(taula, i);
+        i++;
+    }
+    return novaTaula;
+}
+function comptaCaracter(taula, num){
+    let i = 0;
+    let cont = 0;
+    while (i < taula.length){
+        if (taula[i] === num){
+            cont++;
+        }
+        i++
+    }
+    return cont;
+}*/
