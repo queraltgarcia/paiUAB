@@ -164,4 +164,96 @@
 }*/
 
 //19.12. - Crea una funció que rep els tres paràmetres següents: 2 nombres i un dels següents valors "+", "-", "*", "/", "%", "pot" i retorni el resultat de l'operació realitzada.
-function 
+/*function calculadora (num1, num2, valor){
+    let resultat;
+    switch(valor){
+        case "+":
+            resultat = num1 + num2;
+            break;
+        case "-":
+            resultat = num1 - num2;
+            break;
+        case "*":
+            resultat = num1 * num2;
+            break;
+        case "/":
+            resultat = num1 / num2;
+            break;
+        case "%":
+            resultat = num1 % num2;
+            break;
+        case "pot":
+            resultat = Math.pow(num1, num2);
+            break;
+        default:
+            resultat = "No has posat cap valor corresponent.";
+    }
+    return "El resultat de l'operació triada és: " + resultat;
+}*/
+
+//19.13. -  Crea una funció que rebi un nombre i retorni cert si aquest nombre és primer o fals en cas contrari.
+/*function comprovarNombre (num){
+    if (num % 2 === 0){
+        return "El nombre no és primer";
+    }else{
+        return "El nombre és primer";
+    }
+}*/
+
+//19.14. - Crea una funció que donat un nombre N, retorni en una taula tots els nombres primers des d'1 fins a N. 
+/*let taula = [];
+let primer;
+let index = 0;
+function comprovarPrimer (num){
+    if (num % 2 === 0){
+        primer = false;
+    }else{
+        primer = true;
+    }
+    for (let i = 2; i <= num; i++){
+        if (comprovarPrimer(i)){
+            taula[index] = i;
+            index++;
+        }
+    }
+    return taula;
+}*/
+
+//19.16. - Crea una funció que, donada una cadena de caràcters tipus "abcdefghijklmn." acabada sempre en punt, retorni quantes a hi ha a la cadena.
+/*let comptador = 0;
+function comptadorA (cadena){
+    for (let i = 0; i < cadena.length; i++){
+        if (cadena[i] === "a"){
+            comptador++;
+        }
+    }
+    return comptador;
+}*/
+
+//19.17. - Crea una funció que, donada una cadena de caràcters amb una frase on les paraules estan separades només per un espai en blanc i acaba en un punt, comptar quantes paraules té la frase.
+/*function comptarParaules (cadena){
+    if (cadena[cadena.length - 1] !== "."){
+        return "La frase no acaba amb un punt.";
+    }
+    let espais = 0;
+    for (let i = 0; i < cadena.length; i++){
+        if (cadena[i] === " "){
+            espais++;
+        }
+    }
+    return espais + 1;
+}*/
+
+//19.18. - Donada una cadena de caràcters on les paraules estan separades només per un espai en blanc i acabada en un punt, comptar quantes paraules de la frase tenen la ce trencada.
+/*function ceTrencada (cadena){
+    let lletra = 0;
+    let paraules = cadena.split (" ");
+    for (let paraula of paraules){
+        if (paraula.includes("ç")){
+            lletra++;
+        }
+    }
+    return lletra;
+}*/
+
+//19.19. -  Donada una taula amb números entre 0 i 99, retorni una altra taula de 100 posicions, on hi hagi guardat a cada posició el número de vegades que apareix un determinat número.
