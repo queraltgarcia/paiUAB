@@ -77,3 +77,91 @@
     }
     return paraules5Lletres;
 }*/
+
+//19.1. - Crea una funció que rebi un nombre i retorni aquest nombre elevat al quadrat.
+/*function quadrat (num){
+    elevat = num * num;
+    return elevat;
+}*/
+
+//19.2. - Crea una funció que rebi un nombre i retorni aquest nombre elevat al cub.
+/*function cub (num){
+    elevat = num * num * num;
+    return elevat;
+}*/
+
+//19.3. - Crea una funció que rebi dos nombres i retorni el primer nombre elevat al segon.
+/*function elevat (num1, num2){
+    return Math.pow(num1, num2);
+}*/
+
+//19.4. - Crea una funció que donat un valor en milles retorni la seva equivalència en metros.
+/*function equivalencia (num){
+    return num * 1853;
+}*/
+
+//19.5. - Crea una funció que, donat un nombre del 0 al 10 retorni una cadena de caràcters amb el nom del nombre donat. 
+/*function nombres (num){
+    if (0 < num < 10){
+        if (num === 0){
+            return "Zero";
+        }else if (num === 1){
+            return "Un";
+        }else if (num === 2){
+            return "Dos";
+        }else if (num === 3){
+            return "Tres";
+        }else if (num === 4){
+            return "Quatre";
+        }else if (num === 5){
+            return "Cinc";
+        }else if (num === 6){
+            return "Sis";
+        }else if (num === 7){
+            return "Set";
+        }else if (num === 8){
+            return "Vuit";
+        }else if (num === 9){
+            return "Nou";
+        }else if (num === 10){
+            return "Deu";
+        }
+    }else{
+        return "El nombre no és entre 0 i 10";
+    }
+}*/
+
+//19.6. -  Crea una funció que, rebut un nombre de segons retorni una cadena de caràcters on es digui quantes hores minuts i segons són.
+/*function conversio (segons){
+    let minuts = segons / 60;
+    let hores = minuts / 60;
+    return "Són " + minuts + " minuts i " + hores + " hores.";
+}*/
+
+//19.10. -  Crea una funció en la que donat un text, indiqui si és o no un palíndrom. 
+/*function palindrom (text){
+    let textRevers = text.split('').reverse().join('');
+    if (textRevers === text){
+        return "El text introduït és un palíndrom";
+    }else{
+        return "El text introduït no és un palíndrom";
+    }
+}*/
+
+//19.11. -  Crea una funció que rebi una cadena de caràcters i retorni aquesta cadena codificada segons les següents regles: 
+//Es posaran les paraules en l’ordre invers  
+//Els caràcters que conformen les paraules també s’han d’invertir. 
+//Les vocals que apareguin s’han de canviar pel seu número equivalent (a=1, e=2, i=3, o=4 i u=5) 
+/*function codificacio (cadena){
+    let cadenaRevers = cadena.split('').reverse().join('');
+    let vocals = {'a':'1', 'e':'2', 'i':'3', 'o':'4', 'u':'5', 'A':'1', 'E':'2', 'I':'3', 'O':'4', 'U':'5' };
+    let resultat = '';
+    for (let i = 0; i < cadena.length; i++){
+        let caracter = cadenaRevers[i];
+        resultat = resultat + vocals[caracter] || caracter;
+    }
+    return resultat;
+}*/
+
+//19.12. - Crea una funció que rep els tres paràmetres següents: 2 nombres i un dels següents valors "+", "-", "*", "/", "%", "pot" i retorni el resultat de l'operació realitzada.
+function 
